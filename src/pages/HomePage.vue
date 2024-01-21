@@ -1,11 +1,12 @@
 <template>
-  <div class="main-wrapper">
-    <q-btn @click="getFood">test</q-btn>
-  </div>
+  <MainBanner></MainBanner>
+  <FiltersSection></FiltersSection>
 </template>
 
 <script setup>
 import { api } from "boot/axios";
+import MainBanner from "../layouts/MainBanner.vue";
+import FiltersSection from "../layouts/FiltersSection.vue";
 
 function getFood() {
   api
@@ -28,7 +29,7 @@ function getFood() {
 <style>
 .main-wrapper {
   background-image: url("/img/backgroundMain.png");
-  height: 700px;
+  height: 100vh;
   background-size: cover;
 }
 </style>

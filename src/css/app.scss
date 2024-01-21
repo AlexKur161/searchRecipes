@@ -1,1 +1,21 @@
-// app global css in SCSS form
+@font-face {
+  font-family: "Maven";
+  src: local("Font Name"), url("/fonts/mavenproregular.woff2") format("woff2");
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Maven";
+}
