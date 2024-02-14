@@ -3,13 +3,14 @@ const apiUrl = "https://api.edamam.com/api/recipes/v2";
 const typeApi = "?type=public";
 const apiId = "9133ecf7";
 const apiKey = "1dc00f739ac8dce83875c61eae475139";
-function getRecipe() {
-  console.log("запрос");
-  api
-    .get(`${apiUrl}${typeApi}&app_id=${apiId}&app_key=${apiKey}`)
+async function getRecipe(name) {
+  console.log("name", name);
+  const responseRecipe = await api
+    .get(`${apiUrl}${typeApi}${name}&app_id=${apiId}&app_key=${apiKey}`)
     .then(function (response) {
       // handle success
       console.log(response);
+      return response;
     })
     .catch(function (error) {
       // handle error
@@ -18,5 +19,7 @@ function getRecipe() {
     .finally(function () {
       // always executed
     });
+  console.log("responseRecipe", responseRecipe.data.hits);
+  return responseRecipe.data.hits;
 }
 export { getRecipe };

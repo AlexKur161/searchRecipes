@@ -3,7 +3,7 @@
     <div class="main-wrapper">
       <div class="container">
         <h1 class="main-title">We will help you find the right recipe!</h1>
-        <q-btn @click="go">test</q-btn>
+        <q-btn>test</q-btn>
       </div>
     </div>
   </div>
@@ -11,13 +11,6 @@
 
 <script setup>
 import { ref, reactive } from "vue";
-import { useSearchRecipe } from "../stores/search.js";
-
-const search = useSearchRecipe();
-
-function go() {
-  search.searchAction();
-}
 </script>
 
 <style scoped>
