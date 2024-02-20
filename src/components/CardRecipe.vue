@@ -13,6 +13,15 @@
           {{ props.recipe.recipe.yield }} servings
         </p>
       </div>
+      <div class="ingredient-wrap row">
+        <p
+          v-for="(ingredient, i) in recipe.recipe.ingredientLines"
+          :key="i"
+          class="ingredient-text"
+        >
+          {{ ingredient }}
+        </p>
+      </div>
     </div>
   </div>
 </template>
@@ -45,7 +54,7 @@ const calculationG = computed(() => {
 .img_card {
   border-radius: 180px;
   max-width: 250px;
-  max-height: 250px;
+  height: 100%;
 }
 .wraper-calg {
   gap: 20px;
@@ -53,5 +62,22 @@ const calculationG = computed(() => {
 .title-card {
   color: #fff;
   font-size: 36px;
+  white-space: nowrap;
+  overflow-x: hidden;
+  width: 300px;
+  text-overflow: ellipsis;
+}
+.ingredient-wrap {
+  overflow: hidden;
+}
+.ingredient-text {
+  color: #565a64;
+}
+.discription-wraper {
+  overflow: hidden;
+  height: 100%;
+}
+.wraper-img {
+  height: 100%;
 }
 </style>

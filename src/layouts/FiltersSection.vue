@@ -1,6 +1,7 @@
 <template>
   <div class="section-filters">
     <div class="container">
+      <h2 class="text-white text-center">Recipes for every taste</h2>
       <FiltersRecipes />
       <div class="card-wrapper row">
         <CardRecipes
@@ -22,14 +23,14 @@ import { useSearchRecipe } from "/src/stores/search.js";
 const store = useSearchRecipe();
 
 onBeforeMount(() => {
-  store.changeName("chicken");
-  store.searchAction();
+  store.searchAction("&q=chicken");
 });
 </script>
 
 <style scoped>
 .section-filters {
   background: #11151e;
+  padding: 120px 0;
 }
 .card-wrapper {
   justify-content: space-between;

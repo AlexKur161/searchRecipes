@@ -2,6 +2,8 @@
   font-family: "Maven";
   src: local("Font Name"), url("/fonts/mavenproregular.woff2") format("woff2");
 }
+$yellow: #ffe598;
+$green: #d6fc51;
 * {
   margin: 0;
   padding: 0;
@@ -20,5 +22,8 @@ h6 {
   font-family: "Maven";
 }
 .text_yellow {
-  color: #ffe598;
+  color: $yellow;
+}
+.text_green {
+  color: $green;
 }
