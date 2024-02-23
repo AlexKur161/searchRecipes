@@ -1,5 +1,5 @@
 <template>
-  <div class="section-filters">
+  <div class="section-block">
     <div class="container">
       <h2 class="text-white text-center">Recipes for every taste</h2>
       <FiltersRecipes />
@@ -28,10 +28,6 @@ onBeforeMount(() => {
 </script>
 
 <style scoped>
-.section-filters {
-  background: #11151e;
-  padding: 120px 0;
-}
 .card-wrapper {
   justify-content: space-between;
   gap: 30px;
