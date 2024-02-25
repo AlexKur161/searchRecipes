@@ -1,7 +1,9 @@
 <template>
-  <div class="section-block">
+  <div id="search" class="section-block">
     <div class="container">
-      <h2 class="text-white text-center">Recipes for every taste</h2>
+      <h2 class="text-white text-center">
+        {{ $t("Recipes for every taste") }}
+      </h2>
       <FiltersRecipes />
       <div class="card-wrapper row">
         <CardRecipes

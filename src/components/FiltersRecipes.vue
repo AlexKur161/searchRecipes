@@ -54,7 +54,7 @@
       color="teal-8"
       @click="searchRecipe"
     />
-    <q-btn color="teal-8" @click="searchRecipe" label="Search" />
+    <q-btn color="teal-8" @click="searchRecipe" :label="$t('Search')" />
   </div>
 </template>
 
@@ -124,15 +124,15 @@ const healthLabels = reactive([
   },
   {
     label: "Alcohol-Free",
-    value: "&health=alcohol-Free",
+    value: "&health=alcohol-free",
   },
   {
     label: "Celery-Free",
-    value: "&health=celery-Free",
+    value: "&health=celery-free",
   },
   {
     label: "Crustcean-Free",
-    value: "&health=crustcean-Free",
+    value: "&health=crustacean-free",
   },
   {
     label: "Dairy-Free",
@@ -140,19 +140,19 @@ const healthLabels = reactive([
   },
   {
     label: "Egg-Free",
-    value: "&health=egg-Free",
+    value: "&health=egg-free",
   },
   {
     label: "Fish-Free",
-    value: "&health=fish-Free",
+    value: "&health=fish-free",
   },
   {
     label: "Immuno-Supportive",
-    value: "&health=immuno-Supportive",
+    value: "&health=immuno-supportive",
   },
   {
     label: "No oil added",
-    value: "&health=no oil added",
+    value: "&health=no-oil-added",
   },
   {
     label: "Vegetarian",

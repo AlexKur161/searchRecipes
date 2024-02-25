@@ -8,7 +8,7 @@
         :class="[country.active ? bgName : false]"
         class="country-tab"
       >
-        {{ country.name }}
+        {{ $t(country.name) }}
       </div>
     </div>
   </div>
@@ -16,31 +16,40 @@
 
 <script setup>
 import { ref, reactive, computed } from "vue";
+import { useCountryRecipe } from "/src/stores/countryRecipe.js";
+
+const store = useCountryRecipe();
+
 const bgName = ref("englang-bg");
 const countryList = reactive([
   {
     name: "Englang",
     bg: "englang-bg",
+    field: "british",
     active: true,
   },
   {
     name: "Japan",
     bg: "japan-bg",
+    field: "japanese",
     active: false,
   },
   {
     name: "Italy",
     bg: "italy-bg",
+    field: "italian",
     active: false,
   },
   {
     name: "France",
     bg: "france-bg",
+    field: "	french",
     active: false,
   },
   {
     name: "Mexico",
     bg: "mexico-bg",
+    field: "mexican",
     active: false,
   },
 ]);
@@ -51,6 +60,7 @@ function countryActive(country) {
     item.active = false;
   });
   country.active = true;
+  store.countryAction(country.field);
 }
 
 const countryBg = computed(() => {
@@ -61,7 +71,8 @@ const countryBg = computed(() => {
 <style scoped>
 .wraper-country {
   gap: 40px;
-  padding-bottom: 40px;
+  padding: 60px 0;
+  justify-content: space-between;
 }
 .country-tab {
   color: #fff;

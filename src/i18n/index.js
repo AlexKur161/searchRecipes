@@ -1,5 +1,8 @@
-import enUS from './en-US'
+import en from "./en-ru/en.json";
+import ru from "./en-ru/ru.json";
 
-export default {
-  'en-US': enUS
-}
+export const defaultLanguages = "en";
+export const languages = {
+  en,
+  ru,
+};
