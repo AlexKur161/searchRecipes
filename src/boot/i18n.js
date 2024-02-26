@@ -6,6 +6,7 @@ import { defaultLanguages } from "src/i18n";
 const messages = Object.assign(languages);
 export default boot(({ app }) => {
   const i18n = createI18n({
+    legacy: false,
     locale: defaultLanguages,
     globalInjection: true,
     messages,

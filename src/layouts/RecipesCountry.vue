@@ -1,5 +1,5 @@
 <template>
-  <div class="section-block">
+  <div id="cuisines" class="section-block">
     <div class="container">
       <h2 class="text-white text-center">
         {{ $t("National cuisines of the world") }}

@@ -62,6 +62,8 @@
 import { ref, reactive } from "vue";
 import { useSearchRecipe } from "../stores/search.js";
 import { computed } from "vue";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n({ useScope: "global" });
 
 const filterName = ref("");
 const store = useSearchRecipe();
@@ -70,7 +72,7 @@ const selectedMeal = ref("");
 const selectedHealth = ref("");
 const diet = reactive([
   {
-    label: "Balanced",
+    label: t("Balanced"),
     value: "&diet=balanced",
   },
   {
