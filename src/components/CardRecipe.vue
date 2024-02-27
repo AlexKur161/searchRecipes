@@ -1,5 +1,9 @@
 <template>
-  <div class="card-wraper">
+  <router-link
+    v-if="cardId !== undefined"
+    :to="{ name: 'detailedRecipe', params: { idRecipe: cardId } }"
+    class="card-wraper"
+  >
     <div class="wraper-img">
       <img class="img_card" :src="recipe.recipe.image" alt="" />
     </div>
@@ -23,15 +27,20 @@
         </p>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script setup>
-import { ref, reactive, computed } from "vue";
+import { ref, reactive, computed, watch } from "vue";
+
 const props = defineProps({
   recipe: Object,
+  cardId: Number,
 });
-
+const test = ref(123);
+// watch(idCard, (newId, oldId) => {
+//   test.value = newId;
+// });
 const calculationCal = computed(() => {
   return Math.round(props.recipe.recipe.calories / props.recipe.recipe.yield);
 });
@@ -50,6 +59,7 @@ const calculationG = computed(() => {
   align-items: center;
   padding: 30px;
   gap: 30px;
+  text-decoration: none;
 }
 .img_card {
   border-radius: 180px;

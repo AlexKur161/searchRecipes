@@ -9,8 +9,8 @@
             </router-link>
           </div>
           <div id="contacts" class="contacts-wraper">
-            <p class="contact-title text-white">Contacts</p>
-            <p class="text-white state">Rostov-on-Don</p>
+            <p class="contact-title text-white">{{ $t("Contacts") }}</p>
+            <p class="text-white state">{{ $t("Rostov-on-Don") }}</p>
             <a class="number-recipe" href="tel:8324328834328"
               >8-954-844-33-12</a
             >

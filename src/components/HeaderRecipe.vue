@@ -41,9 +41,9 @@
 import { ref, reactive, computed } from "vue";
 import { useI18n } from "vue-i18n";
 const nav = reactive([
-  { name: "Search recipe", anchor: "#search" },
-  { name: "Cuisines world", anchor: "#cuisines" },
-  { name: "Contacts", anchor: "#contacts" },
+  { name: "Search recipe", anchor: "/#search" },
+  { name: "Cuisines world", anchor: "/#cuisines" },
+  { name: "Contacts", anchor: "/#contacts" },
 ]);
 const { locale } = useI18n();
 

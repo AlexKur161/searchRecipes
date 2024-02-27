@@ -9,6 +9,7 @@
         <CardRecipe
           :recipe="card"
           v-for="(card, i) in store.recipesCountry"
+          :cardId="i"
           :key="i"
         />
       </div>

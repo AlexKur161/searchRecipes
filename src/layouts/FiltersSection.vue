@@ -7,8 +7,9 @@
       <FiltersRecipes />
       <div class="card-wrapper row">
         <CardRecipes
-          :recipe="card"
           v-for="(card, i) in store.recipes"
+          :recipe="card"
+          :cardId="i"
           :key="i"
         />
       </div>

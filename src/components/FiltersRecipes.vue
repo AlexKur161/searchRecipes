@@ -7,7 +7,7 @@
       bg-color="white"
       style="max-width: 400px"
       v-model="filterName"
-      label="the name of the recipe"
+      :label="$t('The name of the recipe')"
     />
     <q-select
       class="select-filter"
@@ -17,7 +17,7 @@
       emit-value
       map-options
       bg-color="white"
-      label="Diet Labels"
+      :label="$t('Diet Labels')"
       transition-show="scale"
       transition-hide="scale"
     ></q-select>
@@ -29,7 +29,7 @@
       emit-value
       map-options
       bg-color="white"
-      label="Meal time"
+      :label="$t('Meal time')"
       transition-show="scale"
       transition-hide="scale"
     ></q-select>
@@ -41,7 +41,7 @@
       emit-value
       map-options
       bg-color="white"
-      label="Health"
+      :label="$t('Health')"
       transition-show="scale"
       transition-hide="scale"
     ></q-select>
