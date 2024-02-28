@@ -44,4 +44,9 @@ import { ref, reactive } from "vue";
   margin: auto;
   margin-top: 30px;
 }
+@media (max-width: 600px) {
+  .main-title {
+    font-size: 40px;
+  }
+}
 </style>

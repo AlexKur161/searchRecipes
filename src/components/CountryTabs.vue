@@ -89,6 +89,7 @@ const countryBg = computed(() => {
   cursor: pointer;
   font-size: 18px;
   position: relative;
+  transition: 0.5s;
 }
 .englang-bg {
   background-image: url("/img/englang.png");
@@ -104,5 +105,35 @@ const countryBg = computed(() => {
 }
 .mexico-bg {
   background-image: url("/img/mexico.png");
+}
+@media (max-width: 1200px) {
+  .country-tab {
+    width: 160px;
+  }
+}
+
+@media (max-width: 999px) {
+  .country-tab {
+    width: 120px;
+    font-size: 14px;
+    background-position: -20px -30px;
+  }
+  .wraper-country {
+    gap: 10px;
+  }
+}
+@media (max-width: 660px) {
+  .country-tab {
+    min-width: 120px;
+    background-position: -20px -25px;
+  }
+  .wraper-country {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    padding: 20px 0;
+  }
+  .wraper-country::-webkit-scrollbar {
+    width: 0;
+  }
 }
 </style>

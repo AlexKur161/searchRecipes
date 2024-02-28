@@ -46,15 +46,20 @@
       transition-hide="scale"
     ></q-select>
     <q-btn
+      class="settings-icon"
       dense
       round
       size="20px"
       flat
       icon="tune"
       color="teal-8"
-      @click="searchRecipe"
     />
-    <q-btn color="teal-8" @click="searchRecipe" :label="$t('Search')" />
+    <q-btn
+      class="search-btn"
+      color="teal-8"
+      @click="searchRecipe"
+      :label="$t('Search')"
+    />
   </div>
 </template>
 
@@ -63,101 +68,101 @@ import { ref, reactive } from "vue";
 import { useSearchRecipe } from "../stores/search.js";
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
-const { t } = useI18n({ useScope: "global" });
+const { t } = useI18n();
 
 const filterName = ref("");
 const store = useSearchRecipe();
 const selectedDiet = ref("");
 const selectedMeal = ref("");
 const selectedHealth = ref("");
-const diet = reactive([
+const diet = ref([
   {
     label: t("Balanced"),
     value: "&diet=balanced",
   },
   {
-    label: "High-Fiber",
+    label: t("High-Fiber"),
     value: "&diet=high-fiber",
   },
   {
-    label: "High-Protein",
+    label: t("High-Protein"),
     value: "&diet=high-protein",
   },
   {
-    label: "Low-Carb",
+    label: t("Low-Carb"),
     value: "&diet=low-carb",
   },
   {
-    label: "Low-Fat",
+    label: t("Low-Fat"),
     value: "&diet=low-fat",
   },
   {
-    label: "Low-Sodium",
+    label: t("Low-Sodium"),
     value: "&diet=low-sodium",
   },
 ]);
 
-const mealTypes = reactive([
+const mealTypes = ref([
   {
-    label: "Breakfast",
+    label: t("Breakfast"),
     value: "&mealType=breakfast",
   },
   {
-    label: "Brunch",
+    label: t("Brunch"),
     value: "&mealType=brunch",
   },
   {
-    label: "Dinner",
+    label: t("Dinner"),
     value: "&mealType=Dinner",
   },
   {
-    label: "Snack",
+    label: t("Snack"),
     value: "&mealType=snack",
   },
   {
-    label: "Teatime",
+    label: t("Teatime"),
     value: "&mealType=teatime",
   },
 ]);
-const healthLabels = reactive([
+const healthLabels = ref([
   {
-    label: "Alcohol-Cocktail",
+    label: t("Alcohol-Cocktail"),
     value: "&health=alcohol-cocktail",
   },
   {
-    label: "Alcohol-Free",
+    label: t("Alcohol-Free"),
     value: "&health=alcohol-free",
   },
   {
-    label: "Celery-Free",
+    label: t("Celery-Free"),
     value: "&health=celery-free",
   },
   {
-    label: "Crustcean-Free",
+    label: t("Crustcean-Free"),
     value: "&health=crustacean-free",
   },
   {
-    label: "Dairy-Free",
+    label: t("Dairy-Free"),
     value: "&health=dairy-free",
   },
   {
-    label: "Egg-Free",
+    label: t("Egg-Free"),
     value: "&health=egg-free",
   },
   {
-    label: "Fish-Free",
+    label: t("Fish-Free"),
     value: "&health=fish-free",
   },
   {
-    label: "Immuno-Supportive",
+    label: t("Immuno-Supportive"),
     value: "&health=immuno-supportive",
   },
   {
-    label: "No oil added",
+    label: t("No oil added"),
     value: "&health=no-oil-added",
   },
   {
-    label: "Vegetarian",
+    label: t("Vegetarian"),
     value: "&health=vegetarian",
   },
 ]);
@@ -187,5 +192,23 @@ function searchRecipe() {
 }
 .select-filter {
   width: 225px;
+}
+@media (max-width: 1200px) {
+  .filter-wrap {
+    justify-content: flex-start;
+  }
+  .settings-icon {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .filter-wrap {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+  }
+  .search-btn {
+    width: 225px;
+  }
 }
 </style>

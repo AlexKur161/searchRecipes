@@ -5,7 +5,13 @@
     class="card-wraper"
   >
     <div class="wraper-img">
-      <img class="img_card" :src="recipe.recipe.image" alt="" />
+      <q-skeleton class="skeleton" v-show="!isLoad" type="circle" />
+      <img
+        @load="loadImage"
+        class="img_card"
+        :src="recipe.recipe.image"
+        alt="food"
+      />
     </div>
     <div class="discription-wraper">
       <h3 class="title-card">{{ recipe.recipe.label }}</h3>
@@ -37,10 +43,14 @@ const props = defineProps({
   recipe: Object,
   cardId: Number,
 });
-const test = ref(123);
-// watch(idCard, (newId, oldId) => {
-//   test.value = newId;
-// });
+const isLoad = ref(false);
+
+function loadImage() {
+  isLoad.value = false;
+  setTimeout(() => {
+    isLoad.value = true;
+  });
+}
 const calculationCal = computed(() => {
   return Math.round(props.recipe.recipe.calories / props.recipe.recipe.yield);
 });
@@ -89,5 +99,56 @@ const calculationG = computed(() => {
 }
 .wraper-img {
   height: 100%;
+  position: relative;
+}
+.skeleton {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 1200px) and (min-width: 1000px) {
+  .img_card {
+    width: 150px;
+    height: auto;
+  }
+  .card-wraper {
+    height: 250px;
+  }
+}
+@media (max-width: 999px) {
+  .card-wraper {
+    width: 100%;
+  }
+}
+@media (max-width: 609px) {
+  .img_card {
+    width: 110px;
+    height: auto;
+  }
+  .title-card {
+    font-size: 18px;
+    width: auto;
+    line-height: 130%;
+    margin-bottom: 5px;
+  }
+  .wraper-calg {
+    gap: 8px;
+  }
+  .wraper-calg .text_yellow {
+    margin-bottom: 0;
+    font-size: 11px;
+  }
+  .card-wraper {
+    width: 100%;
+    height: 150px;
+    gap: 15px;
+    padding: 20px 30px;
+  }
+  .ingredient-text {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
 }
 </style>

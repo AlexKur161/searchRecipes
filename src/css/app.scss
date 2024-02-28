@@ -10,8 +10,9 @@ $green: #d6fc51;
   font-family: "Maven";
 }
 .container {
-  max-width: 1300px;
+  max-width: 1320px;
   margin: auto;
+  padding: 0 10px;
 }
 .text_yellow {
   color: $yellow;
@@ -22,4 +23,9 @@ $green: #d6fc51;
 .section-block {
   background: #11151e;
   padding-top: 120px;
+}
+@media (max-width: 1000px) {
+  .section-block {
+    padding-top: 60px;
+  }
 }

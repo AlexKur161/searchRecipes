@@ -22,7 +22,25 @@ async function getRecipe(name = "", diet = "", health = "", meal = "") {
     .finally(function () {
       // always executed
     });
-  return responseRecipe?.data?.hits;
+  return responseRecipe?.data;
+}
+
+async function nextPage(link) {
+  const responseRecipe = await api
+    .get(link)
+    .then(function (response) {
+      // handle success
+      console.log(response);
+      return response;
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+  return responseRecipe?.data;
 }
 
 async function getRecipeCountry(country) {
@@ -44,4 +62,4 @@ async function getRecipeCountry(country) {
     });
   return responseCountry?.data?.hits;
 }
-export { getRecipe, getRecipeCountry };
+export { getRecipe, getRecipeCountry, nextPage };
