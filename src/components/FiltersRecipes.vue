@@ -64,9 +64,8 @@
 </template>
 
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, reactive, computed } from "vue";
 import { useSearchRecipe } from "../stores/search.js";
-import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
@@ -75,97 +74,103 @@ const store = useSearchRecipe();
 const selectedDiet = ref("");
 const selectedMeal = ref("");
 const selectedHealth = ref("");
-const diet = ref([
-  {
-    label: t("Balanced"),
-    value: "&diet=balanced",
-  },
-  {
-    label: t("High-Fiber"),
-    value: "&diet=high-fiber",
-  },
-  {
-    label: t("High-Protein"),
-    value: "&diet=high-protein",
-  },
-  {
-    label: t("Low-Carb"),
-    value: "&diet=low-carb",
-  },
-  {
-    label: t("Low-Fat"),
-    value: "&diet=low-fat",
-  },
-  {
-    label: t("Low-Sodium"),
-    value: "&diet=low-sodium",
-  },
-]);
+const diet = computed(() => {
+  return [
+    {
+      label: t("Balanced"),
+      value: "&diet=balanced",
+    },
+    {
+      label: t("High-Fiber"),
+      value: "&diet=high-fiber",
+    },
+    {
+      label: t("High-Protein"),
+      value: "&diet=high-protein",
+    },
+    {
+      label: t("Low-Carb"),
+      value: "&diet=low-carb",
+    },
+    {
+      label: t("Low-Fat"),
+      value: "&diet=low-fat",
+    },
+    {
+      label: t("Low-Sodium"),
+      value: "&diet=low-sodium",
+    },
+  ];
+});
 
-const mealTypes = ref([
-  {
-    label: t("Breakfast"),
-    value: "&mealType=breakfast",
-  },
-  {
-    label: t("Brunch"),
-    value: "&mealType=brunch",
-  },
-  {
-    label: t("Dinner"),
-    value: "&mealType=Dinner",
-  },
-  {
-    label: t("Snack"),
-    value: "&mealType=snack",
-  },
-  {
-    label: t("Teatime"),
-    value: "&mealType=teatime",
-  },
-]);
-const healthLabels = ref([
-  {
-    label: t("Alcohol-Cocktail"),
-    value: "&health=alcohol-cocktail",
-  },
-  {
-    label: t("Alcohol-Free"),
-    value: "&health=alcohol-free",
-  },
-  {
-    label: t("Celery-Free"),
-    value: "&health=celery-free",
-  },
-  {
-    label: t("Crustcean-Free"),
-    value: "&health=crustacean-free",
-  },
-  {
-    label: t("Dairy-Free"),
-    value: "&health=dairy-free",
-  },
-  {
-    label: t("Egg-Free"),
-    value: "&health=egg-free",
-  },
-  {
-    label: t("Fish-Free"),
-    value: "&health=fish-free",
-  },
-  {
-    label: t("Immuno-Supportive"),
-    value: "&health=immuno-supportive",
-  },
-  {
-    label: t("No oil added"),
-    value: "&health=no-oil-added",
-  },
-  {
-    label: t("Vegetarian"),
-    value: "&health=vegetarian",
-  },
-]);
+const mealTypes = computed(() => {
+  return [
+    {
+      label: t("Breakfast"),
+      value: "&mealType=breakfast",
+    },
+    {
+      label: t("Brunch"),
+      value: "&mealType=brunch",
+    },
+    {
+      label: t("Dinner"),
+      value: "&mealType=Dinner",
+    },
+    {
+      label: t("Snack"),
+      value: "&mealType=snack",
+    },
+    {
+      label: t("Teatime"),
+      value: "&mealType=teatime",
+    },
+  ];
+});
+const healthLabels = computed(() => {
+  return [
+    {
+      label: t("Alcohol-Cocktail"),
+      value: "&health=alcohol-cocktail",
+    },
+    {
+      label: t("Alcohol-Free"),
+      value: "&health=alcohol-free",
+    },
+    {
+      label: t("Celery-Free"),
+      value: "&health=celery-free",
+    },
+    {
+      label: t("Crustcean-Free"),
+      value: "&health=crustacean-free",
+    },
+    {
+      label: t("Dairy-Free"),
+      value: "&health=dairy-free",
+    },
+    {
+      label: t("Egg-Free"),
+      value: "&health=egg-free",
+    },
+    {
+      label: t("Fish-Free"),
+      value: "&health=fish-free",
+    },
+    {
+      label: t("Immuno-Supportive"),
+      value: "&health=immuno-supportive",
+    },
+    {
+      label: t("No oil added"),
+      value: "&health=no-oil-added",
+    },
+    {
+      label: t("Vegetarian"),
+      value: "&health=vegetarian",
+    },
+  ];
+});
 
 const filterNameLink = computed(() => {
   if (filterName.value !== "") {

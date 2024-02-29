@@ -1,8 +1,8 @@
 import { api } from "boot/axios";
 const apiUrl = "https://api.edamam.com/api/recipes/v2";
 const typeApi = "?type=public";
-const apiId = "9133ecf7";
-const apiKey = "1dc00f739ac8dce83875c61eae475139";
+const apiId = import.meta.env.VITE_API_ID_RECIPE;
+const apiKey = import.meta.env.VITE_API_KEY_RECIPE;
 async function getRecipe(name = "", diet = "", health = "", meal = "") {
   console.log("name", name);
   console.log("diet", diet);
@@ -11,35 +11,13 @@ async function getRecipe(name = "", diet = "", health = "", meal = "") {
       `${apiUrl}${typeApi}${name}&app_id=${apiId}&app_key=${apiKey}${diet}${health}${meal}`
     )
     .then(function (response) {
-      // handle success
       console.log(response);
       return response;
     })
     .catch(function (error) {
-      // handle error
       console.log(error);
     })
-    .finally(function () {
-      // always executed
-    });
-  return responseRecipe?.data;
-}
-
-async function nextPage(link) {
-  const responseRecipe = await api
-    .get(link)
-    .then(function (response) {
-      // handle success
-      console.log(response);
-      return response;
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .finally(function () {
-      // always executed
-    });
+    .finally(function () {});
   return responseRecipe?.data;
 }
 
@@ -49,17 +27,13 @@ async function getRecipeCountry(country) {
       `${apiUrl}${typeApi}&app_id=${apiId}&app_key=${apiKey}&cuisineType=${country}`
     )
     .then(function (response) {
-      // handle success
       console.log(response);
       return response;
     })
     .catch(function (error) {
-      // handle error
       console.log(error);
     })
-    .finally(function () {
-      // always executed
-    });
+    .finally(function () {});
   return responseCountry?.data?.hits;
 }
-export { getRecipe, getRecipeCountry, nextPage };
+export { getRecipe, getRecipeCountry };

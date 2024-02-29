@@ -22,9 +22,6 @@
       <div class="nodata-wrapper" v-else>
         {{ $t("Select the parameters to filter") }}
       </div>
-      <div class="pagination-wrap">
-        <PaginationRecipe />
-      </div>
     </div>
   </div>
 </template>
@@ -33,7 +30,6 @@
 import { ref, reactive, computed, onBeforeMount } from "vue";
 import FiltersRecipes from "components/FiltersRecipes.vue";
 import CardRecipes from "components/CardRecipe.vue";
-import PaginationRecipe from "components/PaginationRecipe.vue";
 import { useSearchRecipe } from "/src/stores/search.js";
 
 const store = useSearchRecipe();
