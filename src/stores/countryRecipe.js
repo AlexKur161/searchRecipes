@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { getRecipeCountry } from "../axios/index.js";
+import { getRecipeCountry } from "/src/axios/index.js";
 import { ref, computed, reactive } from "vue";
 
 export const useCountryRecipe = defineStore("country", () => {
