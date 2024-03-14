@@ -2,6 +2,7 @@
 .thumbs.db
 node_modules
 coverage
+__snapshots__
 
 # Quasar core related directories
 .quasar
