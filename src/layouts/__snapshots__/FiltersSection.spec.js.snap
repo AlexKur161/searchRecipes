@@ -1,0 +1,18 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FiltersSection >  1`] = `
+"<div data-v-55d9bde9="" id="search" class="section-block">
+  <div data-v-55d9bde9="" class="container">
+    <h2 data-v-55d9bde9="" class="text-white text-center filter-title">Recipes for every taste</h2>
+    <div data-v-5703595a="" data-v-55d9bde9="" class="filter-wrap row">
+      <q-input data-v-5703595a="" rounded="" class="select-filter" color="teal-8" bg-color="white" style="max-width: 400px;" modelvalue="" label="The name of the recipe"></q-input>
+      <q-select data-v-5703595a="" class="select-filter" color="teal-8" modelvalue="" options="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" emit-value="" map-options="" bg-color="white" label="Diet Labels" transition-show="scale" transition-hide="scale"></q-select>
+      <q-select data-v-5703595a="" class="select-filter" color="teal-8" modelvalue="" options="[object Object],[object Object],[object Object],[object Object],[object Object]" emit-value="" map-options="" bg-color="white" label="Meal time" transition-show="scale" transition-hide="scale"></q-select>
+      <q-select data-v-5703595a="" class="select-filter" color="teal-8" modelvalue="" options="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" emit-value="" map-options="" bg-color="white" label="Health" transition-show="scale" transition-hide="scale"></q-select>
+      <q-btn data-v-5703595a="" class="settings-icon" dense="" round="" size="20px" flat="" icon="tune" color="teal-8"></q-btn>
+      <q-btn data-v-5703595a="" class="search-btn" color="teal-8" label="Search"></q-btn>
+    </div>
+    <div data-v-55d9bde9="" class="nodata-wrapper">Select the parameters to filter</div>
+  </div>
+</div>"
+`;

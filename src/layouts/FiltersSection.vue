@@ -5,14 +5,16 @@
         {{ $t("Recipes for every taste") }}
       </h2>
       <FiltersRecipes />
-      <div v-if="store.recipes.length > 0" class="card-wrapper row">
+      <div v-if="store.recipes.length > 0">
+      <transition-group  class="card-wrapper row" name="list" tag="div">
         <CardRecipes
           v-for="(card, i) in store.recipes"
           :recipe="card"
           :cardId="i"
-          :key="i"
+          v-bind:key="i"
         />
-        <q-inner-loading
+      </transition-group>
+      <q-inner-loading
           style="background: rgb(255 255 255 / 0%)"
           size="80px"
           color="primary"
@@ -76,5 +78,24 @@ onBeforeMount(() => {
   .nodata-wrapper {
     font-size: 18px;
   }
+}
+
+
+.list-move, /* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+.list-leave-active {
+  position: absolute;
 }
 </style>

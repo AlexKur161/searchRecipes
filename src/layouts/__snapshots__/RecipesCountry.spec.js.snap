@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FiltersSection >  1`] = `
+"<div data-v-c5d621a0="" id="cuisines" class="section-block">
+  <div data-v-c5d621a0="" class="container">
+    <h2 data-v-c5d621a0="" class="text-white text-center filter-title">National cuisines of the world</h2>
+    <div data-v-14ff4834="" data-v-c5d621a0="">
+      <div data-v-14ff4834="" class="wraper-country row">
+        <div data-v-14ff4834="" class="englang-bg country-tab">Englang</div>
+        <div data-v-14ff4834="" class="country-tab">Japan</div>
+        <div data-v-14ff4834="" class="country-tab">Italy</div>
+        <div data-v-14ff4834="" class="country-tab">France</div>
+        <div data-v-14ff4834="" class="country-tab">Mexico</div>
+      </div>
+    </div>
+    <div data-v-c5d621a0="" class="nodata-wrapper">No Data</div>
+  </div>
+</div>"
+`;

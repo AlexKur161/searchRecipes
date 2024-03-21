@@ -2,10 +2,12 @@
   <div>
     <div class="main-wrapper">
       <div class="container">
-        <h1 class="main-title">
+        <transition appear>
+        <h1 class="main-title up">
           {{ $t("We will help you find the right recipe!") }}
         </h1>
-        <router-link class="link-recipe" to="#search">{{
+      </transition>
+        <router-link class="link-recipe up" to="#search">{{
           $t("Try it!")
         }}</router-link>
       </div>
@@ -14,7 +16,13 @@
 </template>
 
 <script setup>
-import { ref, reactive } from "vue";
+import { ref, onMounted } from "vue";
+import {useGsapElement} from "src/composable/useGsapElement.js"
+
+const { up } = useGsapElement();
+onMounted(()=> {
+  up();
+})
 </script>
 
 <style scoped>
