@@ -2,7 +2,7 @@
   <router-link
     v-if="cardId !== undefined"
     :to="{ name: 'detailedRecipe', params: { idRecipe: cardId } }"
-    class="card-wraper"
+    class="card-wraper card_animation"
   >
     <div class="wraper-img">
       <q-skeleton class="skeleton" v-show="!isLoad" type="circle" />
@@ -37,7 +37,10 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, watch } from "vue";
+import { ref, reactive, computed, onMounted, onBeforeUpdate} from "vue";
+import {useGsapElement} from "src/composable/useGsapElement.js"
+
+const { cardAnimation } = useGsapElement();
 
 const props = defineProps({
   recipe: Object,
@@ -57,6 +60,10 @@ const calculationCal = computed(() => {
 const calculationG = computed(() => {
   return Math.round(props.recipe.recipe.totalWeight);
 });
+
+onBeforeUpdate(()=> {
+  cardAnimation();
+})
 </script>
 
 <style scoped>
