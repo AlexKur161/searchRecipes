@@ -1,4 +1,4 @@
-import { api } from "boot/axios";
+import { api } from "../boot/axios.js";
 const apiUrl = "https://api.edamam.com/api/recipes/v2";
 const typeApi = "?type=public";
 const apiId = import.meta.env.VITE_API_ID_RECIPE;

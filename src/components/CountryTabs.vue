@@ -43,7 +43,7 @@ const countryList = reactive([
   {
     name: "France",
     bg: "france-bg",
-    field: "	french",
+    field: "french",
     active: false,
   },
   {
@@ -62,10 +62,6 @@ function countryActive(country) {
   country.active = true;
   store.countryAction(country.field);
 }
-
-const countryBg = computed(() => {
-  return bgName;
-});
 </script>
 
 <style scoped>

@@ -20,3 +20,4 @@ import HeaderRecipe from "../components/HeaderRecipe.vue";
   background-size: cover;
 }
 </style>
+../layouts/FilterSection.vue
