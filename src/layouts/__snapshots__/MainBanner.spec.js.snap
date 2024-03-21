@@ -4,8 +4,10 @@ exports[`CountryTabs >  1`] = `
 "<div data-v-72225878="">
   <div data-v-72225878="" class="main-wrapper">
     <div data-v-72225878="" class="container">
-      <h1 data-v-72225878="" class="main-title">We will help you find the right recipe!</h1>
-      <router-link-stub data-v-72225878="" class="link-recipe" to="#search"></router-link-stub>
+      <transition-stub data-v-72225878="" appear="true" persisted="false" css="true">
+        <h1 data-v-72225878="" class="main-title up">We will help you find the right recipe!</h1>
+      </transition-stub>
+      <router-link-stub data-v-72225878="" class="link-recipe up" to="#search"></router-link-stub>
     </div>
   </div>
 </div>"

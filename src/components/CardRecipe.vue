@@ -38,7 +38,7 @@
 
 <script setup>
 import { ref, reactive, computed, onMounted, onBeforeUpdate} from "vue";
-import {useGsapElement} from "src/composable/useGsapElement.js"
+import {useGsapElement} from "/src/composable/useGsapElement.js"
 
 const { cardAnimation } = useGsapElement();
 

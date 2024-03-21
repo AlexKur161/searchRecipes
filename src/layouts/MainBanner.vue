@@ -17,7 +17,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import {useGsapElement} from "src/composable/useGsapElement.js"
+import {useGsapElement} from "/src/composable/useGsapElement.js"
 
 const { up } = useGsapElement();
 onMounted(()=> {
