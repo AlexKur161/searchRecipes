@@ -41,7 +41,7 @@
       </q-menu>
     </q-btn>
   </q-toolbar>
-  <div class="header">
+  <div class="header showel">
     <div class="container">
       <div class="header-wraper row justify-between">
         <div class="logo-wraper">
@@ -80,8 +80,12 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed } from "vue";
+import { ref, reactive, computed, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
+import {useGsapElement} from "src/composable/useGsapElement.js"
+
+const { showEl } = useGsapElement();
+
 const nav = reactive([
   { name: "Search recipe", anchor: "/#search" },
   { name: "Cuisines world", anchor: "/#cuisines" },
@@ -100,6 +104,10 @@ const languageActive = computed(() => {
     return false;
   }
 });
+
+onMounted(()=> {
+  showEl();
+})
 </script>
 
 <style scoped>

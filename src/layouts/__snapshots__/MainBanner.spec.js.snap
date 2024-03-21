@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CountryTabs >  1`] = `
+"<div data-v-72225878="">
+  <div data-v-72225878="" class="main-wrapper">
+    <div data-v-72225878="" class="container">
+      <h1 data-v-72225878="" class="main-title">We will help you find the right recipe!</h1>
+      <router-link-stub data-v-72225878="" class="link-recipe" to="#search"></router-link-stub>
+    </div>
+  </div>
+</div>"
+`;

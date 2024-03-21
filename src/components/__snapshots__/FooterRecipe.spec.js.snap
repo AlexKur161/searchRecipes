@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CountryTabs >  1`] = `
+"<div data-v-2d72028e="" class="section-block">
+  <div data-v-2d72028e="" class="footer-bg">
+    <div data-v-2d72028e="" class="container">
+      <div data-v-2d72028e="" class="footer-wraper row">
+        <div data-v-2d72028e="" class="logo-wraper">
+          <router-link data-v-2d72028e="" to="[object Object]"><img data-v-2d72028e="" class="logo-recipe" src="/img/logo.svg" alt="logo"></router-link>
+        </div>
+        <div data-v-2d72028e="" id="contacts" class="contacts-wraper">
+          <p data-v-2d72028e="" class="contact-title text-white">Contacts</p>
+          <p data-v-2d72028e="" class="text-white state">Rostov-on-Don</p><a data-v-2d72028e="" class="number-recipe" href="tel:8324328834328">8-954-844-33-12</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>"
+`;

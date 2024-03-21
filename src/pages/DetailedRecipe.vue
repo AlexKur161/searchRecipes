@@ -4,12 +4,12 @@
     <div class="container">
       <div class="img-info-wraper">
         <img
-          class="img-recipe-info"
+          class="img-recipe-info showel"
           :src="infoRecipe.recipe.image"
           alt="imgfood"
         />
       </div>
-      <h3 class="title-detailed">{{ infoRecipe.recipe.label }}</h3>
+      <h3 class="title-detailed up">{{ infoRecipe.recipe.label }}</h3>
       <div class="cal-info-wraper">
         <div class="cal-info">{{ calculationCal }} {{ $t("cal") }}</div>
         <div class="cal-info">{{ calculationG }} {{ $t("g") }}</div>
@@ -38,13 +38,15 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onBeforeMount } from "vue";
+import { ref, reactive, computed, onBeforeMount, onMounted } from "vue";
 import FooterRecipe from "../components/FooterRecipe.vue";
 import HeaderRecipe from "../components/HeaderRecipe.vue";
 import { useSearchRecipe } from "/src/stores/search.js";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
+import {useGsapElement} from "src/composable/useGsapElement.js"
 
-const router = useRouter();
+const { up, showEl } = useGsapElement();
+
 const route = useRoute();
 
 const store = useSearchRecipe();
@@ -62,6 +64,10 @@ onBeforeMount(() => {
   console.log(store.recipes[Number(route.params.idRecipe)]);
   infoRecipe.value = store.recipes[Number(route.params.idRecipe)];
 });
+onMounted(() => {
+  up();
+  showEl();
+})
 </script>
 
 <style scoped>
