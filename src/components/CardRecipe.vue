@@ -37,8 +37,8 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed, onMounted, onBeforeUpdate} from "vue";
-import {useGsapElement} from "/src/composable/useGsapElement.js"
+import { ref, reactive, computed, onMounted, onBeforeUpdate } from "vue";
+import { useGsapElement } from "/src/composable/useGsapElement.js";
 
 const { cardAnimation } = useGsapElement();
 
@@ -61,9 +61,9 @@ const calculationG = computed(() => {
   return Math.round(props.recipe.recipe.totalWeight);
 });
 
-onBeforeUpdate(()=> {
+onBeforeUpdate(() => {
   cardAnimation();
-})
+});
 </script>
 
 <style scoped>
@@ -98,7 +98,7 @@ onBeforeUpdate(()=> {
   overflow: hidden;
 }
 .ingredient-text {
-  color: #565a64;
+  color: #fff;
 }
 .discription-wraper {
   overflow: hidden;

@@ -5,7 +5,10 @@
         {{ $t("National cuisines of the world") }}
       </h2>
       <CountryTabs />
-      <div v-if="store.recipesCountry.length > 0" class="card-wrapper row">
+      <div
+        v-if="store.recipesCountry.length > 0"
+        class="card-wrapper animation-country row"
+      >
         <CardRecipe
           :recipe="card"
           v-for="(card, i) in store.recipesCountry"
