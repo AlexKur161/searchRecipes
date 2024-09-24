@@ -43,7 +43,7 @@ import FooterRecipe from "../components/FooterRecipe.vue";
 import HeaderRecipe from "../components/HeaderRecipe.vue";
 import { useSearchRecipe } from "/src/stores/search.js";
 import { useRoute } from "vue-router";
-import {useGsapElement} from "src/composable/useGsapElement.js"
+import { useGsapElement } from "src/composable/useGsapElement.js";
 
 const { up, showEl } = useGsapElement();
 
@@ -61,13 +61,14 @@ const calculationG = computed(() => {
   return Math.round(infoRecipe.value.recipe.totalWeight);
 });
 onBeforeMount(() => {
-  console.log(store.recipes[Number(route.params.idRecipe)]);
-  infoRecipe.value = store.recipes[Number(route.params.idRecipe)];
+  infoRecipe.value = store.recipes.find(
+    (item) => item.id === route.params.idRecipe
+  );
 });
 onMounted(() => {
   up();
   showEl();
-})
+});
 </script>
 
 <style scoped>

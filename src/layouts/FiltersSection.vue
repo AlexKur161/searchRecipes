@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/valid-v-for -->
 <template>
   <div id="search" class="section-block">
     <div class="container">
@@ -6,15 +7,15 @@
       </h2>
       <FiltersRecipes />
       <div v-if="store.recipes.length > 0">
-      <transition-group  class="card-wrapper row" name="list" tag="div">
-        <CardRecipes
-          v-for="(card, i) in store.recipes"
-          :recipe="card"
-          :cardId="i"
-          v-bind:key="i"
-        />
-      </transition-group>
-      <q-inner-loading
+        <transition-group class="card-wrapper row" name="list" tag="div">
+          <CardRecipes
+            v-for="card in store.recipes"
+            :recipe="card"
+            :cardId="card.id"
+            :key="card.id"
+          />
+        </transition-group>
+        <q-inner-loading
           style="background: rgb(255 255 255 / 0%)"
           size="80px"
           color="primary"
@@ -35,7 +36,7 @@ import CardRecipes from "/src/components/CardRecipe.vue";
 import { useSearchRecipe } from "/src/stores/search.js";
 
 const store = useSearchRecipe();
-
+const uniqueId = window.crypto;
 const showLoaded = computed(() => {
   return store.visible;
 });
@@ -79,7 +80,6 @@ onBeforeMount(() => {
     font-size: 18px;
   }
 }
-
 
 .list-move, /* apply transition to moving elements */
 .list-enter-active,

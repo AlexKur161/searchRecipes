@@ -11,9 +11,9 @@
       >
         <CardRecipe
           :recipe="card"
-          v-for="(card, i) in store.recipesCountry"
-          :cardId="i"
-          :key="i"
+          v-for="card in store.recipesCountry"
+          :cardId="card.id"
+          :key="card.id"
         />
         <q-inner-loading
           style="background: rgb(255 255 255 / 0%)"

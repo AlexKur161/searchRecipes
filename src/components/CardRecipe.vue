@@ -44,7 +44,7 @@ const { cardAnimation } = useGsapElement();
 
 const props = defineProps({
   recipe: Object,
-  cardId: Number,
+  cardId: String,
 });
 const isLoad = ref(false);
 
