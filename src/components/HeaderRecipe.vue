@@ -79,10 +79,10 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, reactive, computed, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
-import {useGsapElement} from "src/composable/useGsapElement.js"
+import { useGsapElement } from "src/composable/useGsapElement.js";
 
 const { showEl } = useGsapElement();
 
@@ -93,7 +93,7 @@ const nav = reactive([
 ]);
 const { locale } = useI18n();
 
-function switchLang(lang) {
+function switchLang(lang: any) {
   locale.value = lang;
 }
 
@@ -105,9 +105,9 @@ const languageActive = computed(() => {
   }
 });
 
-onMounted(()=> {
+onMounted(() => {
   showEl();
-})
+});
 </script>
 
 <style scoped>

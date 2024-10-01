@@ -38,7 +38,7 @@
 
 <script setup>
 import { ref, computed, onBeforeUpdate } from "vue";
-import { useGsapElement } from "/src/composable/useGsapElement.js";
+import { useGsapElement } from "/src/composable/useGsapElement.ts";
 
 const { cardAnimation } = useGsapElement();
 
@@ -46,6 +46,7 @@ const props = defineProps({
   recipe: Object,
   cardId: String,
 });
+
 const isLoad = ref(false);
 
 function loadImage() {
