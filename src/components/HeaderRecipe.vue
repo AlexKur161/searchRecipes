@@ -93,7 +93,7 @@ const nav = reactive([
 ]);
 const { locale } = useI18n();
 
-function switchLang(lang: any) {
+function switchLang(lang: string) {
   locale.value = lang;
 }
 
