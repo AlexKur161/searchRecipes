@@ -1,7 +1,7 @@
 <template>
   <HeaderRecipe />
   <div class="page-detailed">
-    <div class="container">
+    <div v-if="infoRecipe" class="container">
       <div class="img-info-wraper">
         <img
           class="img-recipe-info showel"
@@ -37,33 +37,43 @@
   <FooterRecipe />
 </template>
 
-<script setup>
-import { ref, reactive, computed, onBeforeMount, onMounted } from "vue";
-import FooterRecipe from "../components/FooterRecipe.vue";
-import HeaderRecipe from "../components/HeaderRecipe.vue";
-import { useSearchRecipe } from "/src/stores/search.js";
+<script setup lang="ts">
+import { ref, type Ref, computed, onBeforeMount, onMounted } from "vue";
+import FooterRecipe from "components/FooterRecipe.vue";
+import HeaderRecipe from "components/HeaderRecipe.vue";
+import { useSearchRecipe } from "src/stores/search.ts";
 import { useRoute } from "vue-router";
-import { useGsapElement } from "src/composable/useGsapElement.js";
+import { useGsapElement } from "src/composable/useGsapElement.ts";
+import { Card } from "src/types";
 
 const { up, showEl } = useGsapElement();
 
 const route = useRoute();
 
 const store = useSearchRecipe();
-const infoRecipe = ref("");
+const infoRecipe: Ref<Card | null> = ref(null);
 
-const calculationCal = computed(() => {
-  return Math.round(
-    infoRecipe.value.recipe.calories / infoRecipe.value.recipe.yield
-  );
+const calculationCal = computed((): number => {
+  if (infoRecipe.value) {
+    return Math.round(
+      infoRecipe.value.recipe.calories / infoRecipe.value.recipe.yield
+    );
+  }
+  return 0;
 });
-const calculationG = computed(() => {
-  return Math.round(infoRecipe.value.recipe.totalWeight);
+const calculationG = computed((): number => {
+  if (infoRecipe.value) {
+    return Math.round(infoRecipe.value.recipe.totalWeight);
+  }
+  return 0;
 });
 onBeforeMount(() => {
-  infoRecipe.value = store.recipes.find(
+  let findItem = store.recipes.find(
     (item) => item.id === route.params.idRecipe
   );
+  if (findItem) {
+    infoRecipe.value = findItem;
+  }
 });
 onMounted(() => {
   up();

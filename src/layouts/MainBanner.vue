@@ -3,10 +3,10 @@
     <div class="main-wrapper">
       <div class="container">
         <transition appear>
-        <h1 class="main-title up">
-          {{ $t("We will help you find the right recipe!") }}
-        </h1>
-      </transition>
+          <h1 class="main-title up">
+            {{ $t("We will help you find the right recipe!") }}
+          </h1>
+        </transition>
         <router-link class="link-recipe up" to="#search">{{
           $t("Try it!")
         }}</router-link>
@@ -15,14 +15,14 @@
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted } from "vue";
-import {useGsapElement} from "/src/composable/useGsapElement.js"
+<script setup lang="ts">
+import { onMounted } from "vue";
+import { useGsapElement } from "src/composable/useGsapElement.ts";
 
 const { up } = useGsapElement();
-onMounted(()=> {
+onMounted(() => {
   up();
-})
+});
 </script>
 
 <style scoped>

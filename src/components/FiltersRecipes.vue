@@ -63,18 +63,23 @@
   </div>
 </template>
 
-<script setup>
-import { ref, reactive, computed } from "vue";
-import { useSearchRecipe } from "../stores/search.js";
+<script setup lang="ts">
+import { ref, type Ref, computed } from "vue";
+import { useSearchRecipe } from "src/stores/search.ts";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
-const filterName = ref("");
+const filterName: Ref<string> = ref("");
 const store = useSearchRecipe();
-const selectedDiet = ref("");
-const selectedMeal = ref("");
-const selectedHealth = ref("");
-const diet = computed(() => {
+const selectedDiet: Ref<string> = ref("");
+const selectedMeal: Ref<string> = ref("");
+const selectedHealth: Ref<string> = ref("");
+
+type Filter = {
+  label: string;
+  value: string;
+};
+const diet = computed((): Filter[] => {
   return [
     {
       label: t("Balanced"),
@@ -103,7 +108,7 @@ const diet = computed(() => {
   ];
 });
 
-const mealTypes = computed(() => {
+const mealTypes = computed((): Filter[] => {
   return [
     {
       label: t("Breakfast"),
@@ -127,7 +132,7 @@ const mealTypes = computed(() => {
     },
   ];
 });
-const healthLabels = computed(() => {
+const healthLabels = computed((): Filter[] => {
   return [
     {
       label: t("Alcohol-Cocktail"),
@@ -172,7 +177,7 @@ const healthLabels = computed(() => {
   ];
 });
 
-const filterNameLink = computed(() => {
+const filterNameLink = computed((): string => {
   if (filterName.value !== "") {
     return "&q=" + filterName.value;
   } else {

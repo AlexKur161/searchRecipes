@@ -1,15 +1,18 @@
 import { defineStore } from "pinia";
 import { getRecipeCountry } from "../services/recipeCountry";
-import { ref, computed, reactive } from "vue";
+import { ref, type Ref } from "vue";
+import { Card } from "src/types";
 
 export const useCountryRecipe = defineStore("country", () => {
-  const recipesCountry = ref([]);
-  const visible = ref(false);
+  const recipesCountry: Ref<Card[]> = ref([]);
+  const visible: Ref<boolean> = ref(false);
 
-  async function countryAction(country) {
+  async function countryAction(country: string) {
     visible.value = true;
     const response = await getRecipeCountry(country);
-    response.forEach((item) => (item.id = window.crypto.randomUUID()));
+    response.forEach(
+      (item: Card) => (item.id = globalThis.crypto.randomUUID())
+    );
     recipesCountry.value = response;
     visible.value = false;
   }

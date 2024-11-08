@@ -29,15 +29,15 @@
   </div>
 </template>
 
-<script setup>
-import { ref, reactive, computed, onBeforeMount } from "vue";
-import CountryTabs from "../components/CountryTabs.vue";
-import CardRecipe from "../components/CardRecipe.vue";
-import { useCountryRecipe } from "/src/stores/countryRecipe.js";
+<script setup lang="ts">
+import { computed, onBeforeMount } from "vue";
+import CountryTabs from "components/CountryTabs.vue";
+import CardRecipe from "components/CardRecipe.vue";
+import { useCountryRecipe } from "src/stores/countryRecipe.ts";
 
 const store = useCountryRecipe();
 
-const showLoaded = computed(() => {
+const showLoaded = computed((): boolean => {
   return store.visible;
 });
 onBeforeMount(() => {

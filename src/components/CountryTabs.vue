@@ -14,13 +14,21 @@
   </div>
 </template>
 
-<script setup>
-import { ref, reactive, computed } from "vue";
-import { useCountryRecipe } from "/src/stores/countryRecipe.js";
+<script setup lang="ts">
+import { ref, type Ref, reactive } from "vue";
+import { useCountryRecipe } from "src/stores/countryRecipe.ts";
 
 const store = useCountryRecipe();
 
-const bgName = ref("englang-bg");
+const bgName: Ref<string> = ref("englang-bg");
+
+type Tab = {
+  name: string;
+  bg: string;
+  field: string;
+  active: boolean;
+};
+
 const countryList = reactive([
   {
     name: "Englang",
@@ -54,7 +62,7 @@ const countryList = reactive([
   },
 ]);
 
-function countryActive(country) {
+function countryActive(country: Tab) {
   bgName.value = country.bg;
   countryList.forEach((item) => {
     item.active = false;

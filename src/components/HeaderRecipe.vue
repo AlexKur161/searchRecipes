@@ -80,9 +80,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed, onMounted } from "vue";
+import { reactive, computed, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
-import { useGsapElement } from "src/composable/useGsapElement.js";
+import { useGsapElement } from "src/composable/useGsapElement.ts";
 
 type Menu = {
   name: string;

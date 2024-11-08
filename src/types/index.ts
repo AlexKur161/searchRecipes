@@ -32,6 +32,7 @@ export type Tlinks = {
 };
 
 export type Card = {
+  id: string;
   recipe: TRecipe;
   _links: Tlinks;
 };
