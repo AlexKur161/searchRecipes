@@ -2,14 +2,19 @@
   <div>
     <div class="main-wrapper">
       <div class="container">
-        <transition appear>
-          <h1 class="main-title up">
-            {{ $t("We will help you find the right recipe!") }}
-          </h1>
-        </transition>
-        <router-link class="link-recipe up" to="#search">{{
-          $t("Try it!")
-        }}</router-link>
+        <div class="wrapper-scene">
+          <div>
+            <transition appear>
+              <h1 class="main-title up">
+                {{ $t("We will help you find the right recipe!") }}
+              </h1>
+            </transition>
+            <router-link class="link-recipe up" to="#search">{{
+              $t("Try it!")
+            }}</router-link>
+          </div>
+          <SceneBook></SceneBook>
+        </div>
       </div>
     </div>
   </div>
@@ -18,6 +23,7 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
 import { useGsapElement } from "src/composable/useGsapElement.ts";
+import SceneBook from "components/SceneBook.vue";
 
 const { up } = useGsapElement();
 onMounted(() => {
@@ -34,11 +40,15 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
 }
+.wrapper-scene {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .main-title {
   color: #fff;
-  text-align: center;
   font-size: 60px;
-  max-width: 650px;
+  max-width: 340px;
   line-height: 130%;
 }
 .link-recipe {
@@ -47,9 +57,8 @@ onMounted(() => {
   text-decoration: none;
   color: #fff;
   background: #00796b;
-  padding: 20px 40px;
+  padding: 20px 100px;
   border-radius: 5px;
-  margin: auto;
   margin-top: 30px;
 }
 @media (max-width: 600px) {

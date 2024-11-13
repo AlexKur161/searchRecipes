@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { getRecipe } from "../services/recipe";
 import { ref } from "vue";
-import { Card } from "src/types";
+import { Card } from "src/types/index.ts";
 
 export const useSearchRecipe = defineStore("search", () => {
   const recipes = ref<Card[]>([]);
