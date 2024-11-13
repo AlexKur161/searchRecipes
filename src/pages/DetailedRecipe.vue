@@ -38,7 +38,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, type Ref, computed, onBeforeMount, onMounted } from "vue";
+import { ref, computed, onBeforeMount, onMounted } from "vue";
 import FooterRecipe from "components/FooterRecipe.vue";
 import HeaderRecipe from "components/HeaderRecipe.vue";
 import { useSearchRecipe } from "src/stores/search.ts";
@@ -51,7 +51,7 @@ const { up, showEl } = useGsapElement();
 const route = useRoute();
 
 const store = useSearchRecipe();
-const infoRecipe: Ref<Card | null> = ref(null);
+const infoRecipe = ref<Card | null>(null);
 
 const calculationCal = computed((): number => {
   if (infoRecipe.value) {

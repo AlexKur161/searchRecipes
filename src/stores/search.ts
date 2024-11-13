@@ -1,14 +1,12 @@
 import { defineStore } from "pinia";
 import { getRecipe } from "../services/recipe";
-import { ref, type Ref } from "vue";
+import { ref } from "vue";
 import { Card } from "src/types";
 
 export const useSearchRecipe = defineStore("search", () => {
-  // Как лучше писать
-  const recipes: Ref<Card[]> = ref([]);
-  // const recipes = ref<Card[]>([])
+  const recipes = ref<Card[]>([]);
 
-  const visible: Ref<boolean> = ref(false);
+  const visible = ref<boolean>(false);
 
   async function searchAction(
     name: string,

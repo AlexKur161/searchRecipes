@@ -64,16 +64,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, type Ref, computed } from "vue";
+import { ref, computed } from "vue";
 import { useSearchRecipe } from "src/stores/search.ts";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
-const filterName: Ref<string> = ref("");
+const filterName = ref<string>("");
 const store = useSearchRecipe();
-const selectedDiet: Ref<string> = ref("");
-const selectedMeal: Ref<string> = ref("");
-const selectedHealth: Ref<string> = ref("");
+const selectedDiet = ref<string>("");
+const selectedMeal = ref<string>("");
+const selectedHealth = ref<string>("");
 
 type Filter = {
   label: string;

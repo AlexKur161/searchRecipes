@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, type Ref, PropType, computed, onBeforeUpdate } from "vue";
+import { ref, PropType, computed, onBeforeUpdate } from "vue";
 import { useGsapElement } from "src/composable/useGsapElement.ts";
 import { Card } from "src/types/index";
 
@@ -54,7 +54,7 @@ const props = defineProps({
   },
 });
 
-const isLoad: Ref<boolean> = ref(false);
+const isLoad = ref<boolean>(false);
 
 function loadImage() {
   isLoad.value = false;

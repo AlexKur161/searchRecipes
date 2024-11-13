@@ -1,11 +1,11 @@
 import { defineStore } from "pinia";
 import { getRecipeCountry } from "../services/recipeCountry";
-import { ref, type Ref } from "vue";
+import { ref } from "vue";
 import { Card } from "src/types";
 
 export const useCountryRecipe = defineStore("country", () => {
-  const recipesCountry: Ref<Card[]> = ref([]);
-  const visible: Ref<boolean> = ref(false);
+  const recipesCountry = ref<Card[]>([]);
+  const visible = ref<boolean>(false);
 
   async function countryAction(country: string) {
     visible.value = true;

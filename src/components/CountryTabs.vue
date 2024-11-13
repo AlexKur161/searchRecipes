@@ -15,12 +15,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, type Ref, reactive } from "vue";
+import { ref, reactive } from "vue";
 import { useCountryRecipe } from "src/stores/countryRecipe.ts";
 
 const store = useCountryRecipe();
 
-const bgName: Ref<string> = ref("englang-bg");
+const bgName = ref<string>("englang-bg");
 
 type Tab = {
   name: string;
