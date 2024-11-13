@@ -80,13 +80,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed, onMounted } from "vue";
+import { reactive, computed, onMounted } from "vue";
 import { useI18n } from "vue-i18n";
-import { useGsapElement } from "src/composable/useGsapElement.js";
+import { useGsapElement } from "src/composable/useGsapElement.ts";
 
+type Menu = {
+  name: string;
+  anchor: string;
+};
 const { showEl } = useGsapElement();
 
-const nav = reactive([
+const nav: Menu[] = reactive([
   { name: "Search recipe", anchor: "/#search" },
   { name: "Cuisines world", anchor: "/#cuisines" },
   { name: "Contacts", anchor: "/#contacts" },
@@ -97,7 +101,7 @@ function switchLang(lang: string) {
   locale.value = lang;
 }
 
-const languageActive = computed(() => {
+const languageActive = computed((): boolean => {
   if (locale.value === "en") {
     return true;
   } else {

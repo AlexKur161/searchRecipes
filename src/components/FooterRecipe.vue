@@ -21,9 +21,7 @@
   </div>
 </template>
 
-<script setup>
-import { ref, reactive } from "vue";
-</script>
+<script setup></script>
 
 <style scoped>
 .footer-bg {

@@ -1,6 +1,6 @@
 import { describe, expect, it, beforeEach } from "vitest";
 import { setActivePinia, createPinia } from "pinia";
-import { useSearchRecipe } from "/src/stores/search.js";
+import { useSearchRecipe } from "/src/stores/search.ts";
 import component from "./CardRecipe.vue";
 import { mount } from "@vue/test-utils";
 

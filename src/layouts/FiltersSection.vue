@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/valid-v-for -->
 <template>
   <div id="search" class="section-block">
     <div class="container">
@@ -29,15 +28,15 @@
   </div>
 </template>
 
-<script setup>
-import { ref, reactive, computed, onBeforeMount } from "vue";
-import FiltersRecipes from "/src/components/FiltersRecipes.vue";
-import CardRecipes from "/src/components/CardRecipe.vue";
-import { useSearchRecipe } from "/src/stores/search.js";
+<script setup lang="ts">
+import { computed, onBeforeMount } from "vue";
+import FiltersRecipes from "src/components/FiltersRecipes.vue";
+import CardRecipes from "src/components/CardRecipe.vue";
+import { useSearchRecipe } from "src/stores/search.ts";
 
 const store = useSearchRecipe();
-const uniqueId = window.crypto;
-const showLoaded = computed(() => {
+
+const showLoaded = computed((): boolean => {
   return store.visible;
 });
 onBeforeMount(() => {

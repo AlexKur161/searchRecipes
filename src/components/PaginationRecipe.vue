@@ -22,7 +22,7 @@
 
 <script setup>
 import { ref, reactive } from "vue";
-import { useSearchRecipe } from "/src/stores/search.js";
+import { useSearchRecipe } from "/src/stores/search.ts";
 
 const store = useSearchRecipe();
 

@@ -1,15 +1,24 @@
 import { defineStore } from "pinia";
 import { getRecipe } from "../services/recipe";
 import { ref } from "vue";
+import { Card } from "src/types";
 
 export const useSearchRecipe = defineStore("search", () => {
-  const recipes = ref([]);
-  const visible = ref(false);
+  const recipes = ref<Card[]>([]);
 
-  async function searchAction(name, diet, health, meal) {
+  const visible = ref<boolean>(false);
+
+  async function searchAction(
+    name: string,
+    diet?: string,
+    health?: string,
+    meal?: string
+  ) {
     visible.value = true;
     const response = await getRecipe(name, diet, health, meal);
-    response.hits.forEach((item) => (item.id = window.crypto.randomUUID()));
+    response.hits.forEach(
+      (item: Card) => (item.id = globalThis.crypto.randomUUID())
+    );
     recipes.value = response.hits;
     visible.value = false;
   }

@@ -36,18 +36,25 @@
   </router-link>
 </template>
 
-<script setup>
-import { ref, computed, onBeforeUpdate } from "vue";
-import { useGsapElement } from "/src/composable/useGsapElement.ts";
+<script setup lang="ts">
+import { ref, PropType, computed, onBeforeUpdate } from "vue";
+import { useGsapElement } from "src/composable/useGsapElement.ts";
+import { Card } from "src/types/index";
 
 const { cardAnimation } = useGsapElement();
 
 const props = defineProps({
-  recipe: Object,
-  cardId: String,
+  recipe: {
+    type: Object as PropType<Card>,
+    required: true,
+  },
+  cardId: {
+    type: String,
+    required: true,
+  },
 });
 
-const isLoad = ref(false);
+const isLoad = ref<boolean>(false);
 
 function loadImage() {
   isLoad.value = false;
@@ -55,10 +62,10 @@ function loadImage() {
     isLoad.value = true;
   });
 }
-const calculationCal = computed(() => {
+const calculationCal = computed((): number => {
   return Math.round(props.recipe.recipe.calories / props.recipe.recipe.yield);
 });
-const calculationG = computed(() => {
+const calculationG = computed((): number => {
   return Math.round(props.recipe.recipe.totalWeight);
 });
 
