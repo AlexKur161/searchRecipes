@@ -15,15 +15,6 @@
 import { OrbitControls } from "@tresjs/cientos";
 import { TresCanvas } from "@tresjs/core";
 import Book from "components/BookFigure.vue";
-import { BasicShadowMap, SRGBColorSpace, NoToneMapping } from "three";
-
-const gl = {
-  shadows: true,
-  alpha: false,
-  shadowMapType: BasicShadowMap,
-  toneMapping: NoToneMapping,
-  windowSize: true,
-};
 </script>
 
 <style scoped></style>
